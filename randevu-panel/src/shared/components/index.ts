@@ -1,0 +1,20 @@
+// Barrel export for the shared UI kit — features import primitives from one place.
+export { Button } from "./Button";
+export type { ButtonVariant, ButtonSize } from "./Button";
+export { IconButton } from "./IconButton";
+export { TextField } from "./TextField";
+export { SelectField } from "./SelectField";
+export { Textarea } from "./Textarea";
+export { Modal, ModalHeader } from "./Modal";
+export { Card } from "./Card";
+export { Badge } from "./Badge";
+export { Banner } from "./Banner";
+export type { BannerVariant } from "./Banner";
+export { EmptyState } from "./EmptyState";
+export { Skeleton } from "./Skeleton";
+export { SectionHeader } from "./SectionHeader";
+export { SegmentedControl } from "./SegmentedControl";
+export { CollapsibleSection } from "./CollapsibleSection";
+export { PageHeader } from "./PageHeader";
+export { BackButton } from "./BackButton";
+export { Switch } from "./Switch";

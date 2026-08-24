@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+/* 1. Kök yapı ve yazı tipi ayarları */
+:root {
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #111827;
+  background-color: #f8fafc;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* 2. HTML katmanını tam ekran yapıyoruz */
+html {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* 3. Body'ye genişlik/yükseklik verip sol-üst köşeye çiviliyoruz */
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #fff;
+  overscroll-behavior: none; 
+  overscroll-behavior-y: none;
+  overflow: hidden;
+}
+
+/* 4. React'in render edildiği ana div'i de tam ekran yapıyoruz */
+#root {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+}

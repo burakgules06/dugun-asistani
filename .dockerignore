@@ -1,0 +1,13 @@
+target/
+logs/
+*.log
+.idea/
+.vscode/
+.mvn/wrapper/maven-wrapper.jar
+randevu-panel/
+.git/
+.gitignore
+docker-compose.yml
+docker-compose.prod.yml
+.env
+.env.*
