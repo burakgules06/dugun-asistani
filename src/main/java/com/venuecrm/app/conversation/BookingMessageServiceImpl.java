@@ -28,7 +28,6 @@ import java.util.stream.Collectors;
 public class BookingMessageServiceImpl implements BookingMessageService {
 
     private static final int PAGE_SIZE = 9;
-    private static final int MONTHS_AHEAD = 12;
 
     private final WhatsAppClient whatsAppClient;
     private final HallRepository hallRepository;
@@ -53,8 +52,9 @@ public class BookingMessageServiceImpl implements BookingMessageService {
                 .map(o -> new WhatsAppClient.Row(o.id(), rangeLabel(o), null))
                 .toList();
 
+        String prompt = String.format(MessageUtil.SELECT_GUEST_RANGE_PROMPT_TEMPLATE, ctx.tenant().getDisplayName());
         whatsAppClient.sendList(ctx.accessToken(), ctx.phoneNumberId(), to,
-                MessageUtil.SELECT_GUEST_RANGE_PROMPT, MessageUtil.LIST_BTN_GUEST_RANGE, rows);
+                prompt, MessageUtil.LIST_BTN_GUEST_RANGE, rows);
     }
 
     @Override
@@ -146,10 +146,13 @@ public class BookingMessageServiceImpl implements BookingMessageService {
     public void sendMonthList(ConversationContext ctx, int page) {
         LocalDate today = LocalDate.now();
         YearMonth rangeStart = YearMonth.from(today);
+        // Onumuzdeki yilin Aralik ayina kadar tum aylar listelenir.
+        YearMonth rangeEnd = YearMonth.of(today.getYear() + 1, 12);
+        int monthsAhead = (int) (rangeStart.until(rangeEnd, java.time.temporal.ChronoUnit.MONTHS) + 1);
 
         int start = page * PAGE_SIZE;
-        int end = Math.min(start + PAGE_SIZE, MONTHS_AHEAD);
-        boolean hasMore = end < MONTHS_AHEAD;
+        int end = Math.min(start + PAGE_SIZE, monthsAhead);
+        boolean hasMore = end < monthsAhead;
 
         List<WhatsAppClient.Row> rows = new ArrayList<>();
         for (int i = start; i < end; i++) {

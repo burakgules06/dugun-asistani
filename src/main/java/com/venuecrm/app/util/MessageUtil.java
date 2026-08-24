@@ -19,8 +19,8 @@ public class MessageUtil {
     public static final String NAME_SAVED_TEMPLATE = "Teşekkürler %s! 🙂";
 
     // ---- Kişi sayısı aralığı seçimi ----
-    public static final String SELECT_GUEST_RANGE_PROMPT =
-            "Organizasyonunuzu planlamamız için misafir sayınızı listeden seçiniz." + BACK_HINT;
+    public static final String SELECT_GUEST_RANGE_PROMPT_TEMPLATE =
+            "*%s Akıllı Planlama Sistemine Hoşgeldiniz*\n\nDavetiniz için planladığınız kişi sayısı aralığını seçiniz.";
     public static final String LIST_BTN_GUEST_RANGE = "Kişi Sayısı";
     public static final String PLEASE_SELECT_GUEST_RANGE = "Lütfen listeden bir kişi sayısı aralığı seçin.";
 
